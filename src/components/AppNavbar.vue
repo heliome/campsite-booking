@@ -7,7 +7,7 @@
     </div>
     <div class="auth-links">
       <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
-      <span v-if="isLoggedIn" @click="logout">Logout</span>
+      <router-link v-if="isLoggedIn" @click="logout" to="/">Logout</router-link>
     </div>
   </nav>
 </template>
