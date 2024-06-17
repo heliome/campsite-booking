@@ -41,7 +41,11 @@ export default {
         }
       } catch (error) {
         console.error('Login error:', error);
-        alert('An error occurred during login.'); 
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        } 
       }
     }
   }

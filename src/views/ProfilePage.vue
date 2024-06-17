@@ -113,6 +113,11 @@ export default {
         this.user = response.data;
       } catch (error) {
         console.error('Error fetching profile:', error);
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     },
     async updateName() {
@@ -128,6 +133,11 @@ export default {
         alert(response.data.message);
       } catch (error) {
         console.error('Error updating name:', error);
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     },
     async updateEmail() {
@@ -142,6 +152,11 @@ export default {
         alert(response.data.message);
       } catch (error) {
         console.error('Error updating email:', error);
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     },
     async updatePassword() {
@@ -155,6 +170,11 @@ export default {
         alert(response.data.message);
       } catch (error) {
         console.error('Error updating password:', error);
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     }
   },

@@ -136,6 +136,11 @@ export default {
         }
       } catch (error) {
         console.error('Error fetching bookings:', error);
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     },
     formatDate(date) {
@@ -153,7 +158,11 @@ export default {
         this.fetchBookings('future', this.futurePageNumber);
       } catch (error) {
         console.error('Error cancelling booking:', error);
-        alert('An error occurred while cancelling the booking.');
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     },
     nextPage(type) {

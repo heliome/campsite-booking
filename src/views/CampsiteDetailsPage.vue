@@ -97,6 +97,11 @@ export default {
         this.campsite = response.data;
       } catch (error) {
         console.error('Error fetching campsite details:', error);
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     },
     async fetchComments(campsiteId) {
@@ -105,6 +110,11 @@ export default {
         this.comments = response.data.comments;
       } catch (error) {
         console.error('Error fetching comments:', error);
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     },
     async bookCampsite() {
@@ -125,7 +135,11 @@ export default {
         await this.fetchCampsiteDetails(this.campsite.campsiteId);
       } catch (error) {
         console.error('Error booking campsite:', error);
-        alert('An error occurred while booking the campsite.');
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     },
     async addComment() {
@@ -144,7 +158,11 @@ export default {
         this.rating = 5;
       } catch (error) {
         console.error('Error adding comment:', error);
-        alert('An error occurred while adding the comment.');
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     },
     validateDates() {

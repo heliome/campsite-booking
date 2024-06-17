@@ -104,6 +104,11 @@ export default {
         this.terrains = terrainsResponse.data;
       } catch (error) {
         console.error('Error fetching features and terrains:', error);
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     },
     async addCampsite() {
@@ -135,6 +140,11 @@ export default {
         this.$router.push('/my-campsites');
       } catch (error) {
         console.error('Error adding campsite:', error);
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     }
   },

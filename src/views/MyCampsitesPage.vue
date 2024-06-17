@@ -79,6 +79,11 @@ export default {
         this.hasMore = response.data.campsites.length === this.pageSize;
       } catch (error) {
         console.error('Error fetching campsites:', error);
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     },
     getImageUrl(imagePath) {
@@ -100,6 +105,11 @@ export default {
         }
       } catch (error) {
         console.error(`Error ${isActive ? 'activating' : 'deactivating'} campsite:`, error);
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     },
     async terminateCampsite(campsiteId) {
@@ -114,6 +124,11 @@ export default {
         }
       } catch (error) {
         console.error('Error terminating campsite:', error);
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert('An error occurred. Please try again.');
+        }
       }
     },
     viewCampsite(campsiteId) {
